@@ -161,7 +161,7 @@ var in1=new B();
 in1.c.push(4);
 var in2=new B();
 console.log(in1.c,in2.c);//[1,2,3,4]
-<code>
+</code>
 
 借用构造函数<br>
 <code>
@@ -175,7 +175,7 @@ var in1=new B();
 in1.c.push(4);
 var in2=new B();
 console.log(in1,in2);//[1,2,3,4],[1,2,3]
-<code>
+</code>
 
 传递参数<br>
 借用构造函数可以在子类型构造函数中向超类型构造函数传递参数<br>
@@ -189,7 +189,7 @@ function B(){
 }
 var ins1=new B();
 console.log(ins1.n,ins1.a);
-<code>
+</code>
 缺点：方法都在构造函数内，无法复用。在超类型的原型中定义的方法，对子类型而言是不可见的。<br>
 
 
@@ -220,7 +220,7 @@ var ins2=new B('bbb33','bbb44');
 console.log(ins2.c,"ins2");
 ins2.exportA();
 ins2.exportB();
-<code>
+</code>
 
 
 原型式继承<br>
@@ -235,7 +235,7 @@ var person={
 	f:[1,2,3]
 };
 var a2=createobj(person);
-<code>
+</code>
 
 ES5 Object.create()<br>
 接受两个参数，一个用作新对象原型的对象和一个为新对象定义额外属性的对象，在传入一个参数的情况下，Object.create()和createobj相同<br>
@@ -243,7 +243,7 @@ ES5 Object.create()<br>
 var p={n:'n1',f:[1,2,3]};
 var an=Object.create(p,{n:{value:'n2'}});
 console.log(an);
-<code>
+</code>
 
 
 寄生式继承<br>
@@ -256,7 +256,7 @@ function createAn(ori){
 	}
 	return clone;
 }
-<code>
+</code>
 createobj函数不是必须的，任何能返回新对象的函数都使用于此模式
 使用寄生式继承来为对象添加函数，会由于不能做到函数复用而降低效率
 
@@ -281,7 +281,7 @@ B.prototype.constructor=B;
 B.prototype.saya=function(){
 	console.log(this.a);
 };
-<code>
+</code>
 
 寄生组合式继承最简单形式<br>
 <code>
@@ -290,7 +290,7 @@ function inheritpro(A,B){
 	pro.constructor=A;//增强对象
 	A.prototype=pro;//制定对象
 }
-<code>
+</code>
 这个函数接受两个参数：子类型构造函数和超类型构造函数。第一步是创建超类型原型的一个副本。第二部是为创建的副本添加constructor属性。第三步，将新创建的对象复制给子类型的原型<br>
 <code>
 function super(n){
@@ -308,7 +308,7 @@ inheritpro(sub,super);
 sub.prototype.saya=function(){
 	console.log(this.a);
 };
-<code>
+</code>
 这个例子的高效率体现在它只调用一次super构造函数，并避免在sub.prototype上创建不必要的属性。原型链也能保持不变。能正常使用instanceof和isPrototypeOf
 
 
