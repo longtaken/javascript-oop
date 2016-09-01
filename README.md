@@ -4,6 +4,7 @@ JavaScript oop编程
 工厂模式
 函数内容创建对象，对象上绑定属性跟方法，返回这个对象。解决了创建多个对象的问题。
 缺点：无法知道对象的类型
+<code>
 function createPerson(n,a){
 	var o=new Object();
 	o.n=n;
@@ -14,7 +15,7 @@ function createPerson(n,a){
 	return o;
 }
 var person=createPerson("n1","a1");
-
+</code>
 
 构造函数模式
 构造函数里绑定对象跟方法，使用new实例化对象。跟普通函数不同的地方在于调用方式，使用new调用就是构造函数。
