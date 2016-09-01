@@ -111,7 +111,7 @@ function Person(n,a){
 	};
 	return o;
 }
-<code>
+</code>
 除了使用export之外没有其他办法访问n的值（工厂模式通过o.n）
 
 
