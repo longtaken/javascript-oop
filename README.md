@@ -30,7 +30,7 @@ function Person(n,a){
 }
 var person=new Person("n1","a1");
 //比工厂模式好的地方是在于可以知道对象的类型，比如：person instanceof Person === true
-//如果b函数是可以公用的方法，但这种模式没次都会创建一个新的b函数
+//如果b函数是可以公用的方法，但这种模式每次都会创建一个新的b函数
 ```
 
 原型模式<br>
@@ -42,6 +42,11 @@ Person.prototype.n="n1";
 Person.prototype.a="a1";
 Person.prototype.export=function(){console.log(this.n);};
 var person=new Person();
+person.__proto__ === Person.prototype;
+Person.prototype.constructor === Person;
+Person.prototype.isPrototypeOf(person);
+Object.getPrototypeOf(person) === Person.prototype;
+//原型链上的对象是共享的
 ```
 
 
